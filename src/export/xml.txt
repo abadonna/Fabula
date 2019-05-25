@@ -1,0 +1,30 @@
+{{#*inline "node"}}
+<node>
+	<id>{{id}}</id>
+	<title>{{title}}</title>
+	<text>{{text}}</text>
+	{{#if nodes}}
+	<nodes>
+		{{#each nodes}}
+		{{> node}}
+		{{/each}}
+	</nodes>
+	{{/if}}
+	{{#if links}}
+	<links>
+		{{#each links}}
+		<link to = "{{to}}"/>
+		{{/each}}
+	</links>
+	{{/if}}
+</node>
+{{/inline}}
+
+<project>
+	<title>{{title}}</title>
+	<nodes>
+	{{#each nodes}}
+		{{> node}}
+	{{/each}}
+	</nodes>
+</project>

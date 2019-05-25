@@ -1,0 +1,481 @@
+body
+{
+    background: black;
+    color: white;
+    background-image: url(images/black.png);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+div
+{
+    font-family: arial, sans-serif;
+    font-size: 8pt;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.workspace
+{
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+	padding: 100px;
+	transform: translate(-50%, -50%);
+	width: 10000px;
+	height: 10000px;
+}
+
+.scaler
+{
+	position: absolute;
+	transform: scale(1);
+	top: 50%;
+	left: 50%;
+}
+
+.dummy
+{
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 50px;
+    z-index: 0;
+}
+
+.linking
+{
+	border: 2px solid yellow;
+}
+
+.flow
+{
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0%, 0%, 0%, 0.2);
+    position: absolute;
+    z-index: 15;
+}
+
+.dialog
+{
+    background-color: rgba(0%, 0%, 0%, 0);
+    z-index: 15;
+}
+
+.annotation
+{
+    color: yellow;
+    border-radius: 10px;
+    border: 1px dashed yellow;
+}
+
+.flow .title, .label .title
+{
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 5px;
+    margin-top: 1px;
+    overflow: hidden;
+}
+
+.hyper
+{
+    color: red;
+}
+
+.tool
+{
+    font-size: 12px;
+    right: 0px;
+    height: 20px;
+    width: 15px;
+    float: right;
+    text-align: center;
+	cursor: pointer;
+	opacity: 0.7;
+	pointer-events: auto;
+}
+
+.tool:hover
+{
+	opacity: 1;
+}
+
+.flow .inner
+{
+    overflow: hidden;
+    position: absolute;
+    top:20px;
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+}
+
+.inner img
+{
+    width: 100%;
+    border: 0;
+}
+
+.text
+{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.title .text
+{
+    color: yellow;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.menu
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%;
+}
+
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0;
+}
+
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px;
+}
+	
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	z-index: 99999;
+	display: block;
+}
+
+.ui-icon-gripsmall-diagonal-se {
+	background-position: -64px -224px;
+}
+
+
+/* ============================================================================================================================
+== BLOCKQUOTE WITH RIGHT-ANGLED TRIANGLE
+** ============================================================================================================================ */
+
+.speech1
+{
+    position:relative;
+    padding:4px 10px;
+    margin: 20px 0px 0px;
+    color:#fff;
+    background:#5a8f00; /* default background for browsers without gradient support */
+    /* css3 */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#b8db29), to(#5a8f00));
+    background:-moz-linear-gradient(#b8db29, #5a8f00);
+    background:-o-linear-gradient(#b8db29, #5a8f00);
+    background:linear-gradient(#b8db29, #5a8f00);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+/* display of quote author (alternatively use a class on the element following the blockquote) */
+.speech1 + p {margin:5px 0 1em 45px; font-style:italic;}
+
+/* creates the triangle */
+.citation1:after {
+    content:"";
+    position:absolute;
+    bottom:-20px;
+    left:20px;
+    border-width:0 20px 20px 0px;
+    border-style:solid;
+    border-color:transparent #5a8f00;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+}
+
+/* ============================================================================================================================
+== BLOCKQUOTE WITH OBTUSE TRIANGLE
+** ============================================================================================================================ */
+
+.speech2 {
+    position:relative;
+    padding:4px 10px;
+    margin: 20px 0px 0px;
+    color:#000;
+    background:#f3961c; /* default background for browsers without gradient support */
+    /* css3 */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+    background:-moz-linear-gradient(#f9d835, #f3961c);
+    background:-o-linear-gradient(#f9d835, #f3961c);
+    background:linear-gradient(#f9d835, #f3961c);
+    /* Using longhand to avoid inconsistencies between Safari 4 and Chrome 4 */
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+/* display of quote author (alternatively use a class on the element following the blockquote) */
+.speech2 + p {margin:5px 50px 1em 0; text-align:right; font-style:italic;}
+
+/* creates the larger triangle */
+.citation2:before {
+    content:"";
+    position:absolute;
+    bottom:-20px;
+    right:20px;
+    border-width:0 0 20px 20px;
+    border-style:solid;
+    border-color:transparent #f3961c;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+}
+
+
+p {
+    margin:1em 0;
+}
+
+
+textarea
+{
+    background-color:  rgba(80%, 80%, 80%, 0.05);
+    width: 100%;
+    height: 100%;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    color: white;
+}
+
+input
+{
+    background-color:  rgba(80%, 80%, 80%, 0.05);
+    width: 100%;
+    height: 100%;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    color: red;
+}
+
+.connection
+{
+	position: absolute;
+	pointer-events: none;
+	z-index: 1;
+	border2: 2px solid blue;
+}
+svg
+{
+	
+	overflow: visible;
+}
+
+g
+{
+	pointer-events: visiblePainted;
+}
+
+.connection > .close
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -7px;
+    margin-top: -8px;
+    color: yellow;
+}
+
+.label .close
+{
+    margin-top: 4px;
+	color: yellow;
+	position: absolute;
+}
+
+.label
+{
+	pointer-events: auto;
+	position: absolute;
+	margin-top: -13px;
+    
+    height: 26px;
+    z-index: 20;
+    overflow: hidden;
+    border: 1px dashed yellow;
+
+    background-image: -ms-linear-gradient(top, #858585 0%, #000000 100%);
+    background-image: -moz-linear-gradient(top, #858585 0%, #000000 100%);
+    background-image: -o-linear-gradient(top, #858585 0%, #000000 100%);
+    background-image: -webkit-linear-gradient(top, #666666 0%, #000000 100%);
+}
+
+.label .text, .label input
+{
+    color: yellow;
+    font-size: 8pt;
+    white-space: nowrap;
+    padding: 5px;
+    border-width: 0;
+}
+
+.help
+{
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    display: none;
+}
+
+.loading
+{
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+.link
+{
+    -webkit-box-shadow: #E23100 0px 0px 17px 0px;
+    background-clip: border-box;
+    background-color: #E23100;
+    border-width: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.246094);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial, Helvetica, 'Helvetica Neue', Verdana, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    height: 14px;
+    line-height: 14px;
+    margin: 0px 10px 9px 0px;
+    outline: white none 0px;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding: 8px 19px 9px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 1px;
+    width: 85px;
+    z-index: 100;
+}
+
+.dashboard
+{
+	width: 100%;
+	height: 100%;
+	background-color: #1C1E21;
+	position: absolute;
+}
+
+.dashboard > ul
+{
+	list-style-type: none;
+}
+
+.dashboard > ul > li
+{
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 20px;
+	color: #757B83;
+}
+
+.dashboard > ul > li:hover
+{
+	color: #fff;
+	cursor: pointer;
+}
+
+.dashboard > .content
+{
+	background-color: #292A2F;
+	width: calc(100% - 200px);
+	height: 100%;
+	position: absolute;
+	left: 200px;
+	top: 0px;
+}
+
+.dashboard > .content > .header
+{
+	border-bottom: 1px solid #37383D;
+	width: 100%;
+	height: 40px;
+	color: #CFD9E5;
+	font-size: 16px;
+	padding-left: 10px;
+	padding-top: 12px;
+	box-sizing: border-box;
+}
+
+.project
+{
+	margin: 10px 10px 10px 20px;
+}
+
+.project:hover {
+	cursor: pointer;
+}
+
+.project > .title
+{
+	font-size: 18px;
+	color: #97A3AF;
+}
+
+.project > .path
+{
+	font-size: 14px;
+	color: #5B6069;
+}
+
+.dashboard > .content td
+{
+	color: #97A3AF;
+	font-size: 16px;
+}
+
+input.single
+{
+    background-color: #1C1E21;
+    width: 200px;
+    height: 26px;
+    border: 1px solid #999;
+   
+	color: #fff;
+}
+
+table
+{
+	margin: 10px;
+	width: calc(100% - 20px);
+}

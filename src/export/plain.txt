@@ -1,0 +1,20 @@
+{{title}}
+
+{{#*inline "workspace"}}
+-------------------------
+WORKSPACE: {{this.title}}
+
+{{#each nodes}}
+{{this.title}}
+{{this.text}}
+
+{{/each}}
+
+{{#each nodes}}
+{{#if this.nodes}}
+{{> workspace}}
+{{/if}}
+{{/each}}
+{{/inline}}
+
+{{> workspace}}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * blob: ;script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <title>Fabula Editor</title>
+    <link type="text/css" rel="stylesheet" href="base.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  
+    <script>
+		//window.$ = window.jQuery = require('jquery');
+
+		import * as React from "react";
+		import * as ReactDOM from "react-dom";
+		import {Provider} from 'react-redux'
+		import App from "./render/app"; 
+		import loadProject from "./render/store"; 
+		import ls from 'local-storage'
+		
+		ls.clear()
+
+		const fs = require('fs')
+		let store = null
+		fs.readFile('/Users/ivan/Projects/Fabula/test_project/project.js', 'utf-8', 
+		function (err, data) {
+			var data = JSON.parse(data)
+			data.path = "/Users/ivan/Projects/Fabula/test_project"
+			
+			//store = loadProject(data)
+			store = loadProject({})
+	
+			ReactDOM.render(
+			<Provider store={store}>
+				<App />
+			</Provider>,
+			document.getElementById("root"))
+		})
+    
+    </script>
+  </body>
+</html>

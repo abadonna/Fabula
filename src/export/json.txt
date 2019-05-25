@@ -1,0 +1,33 @@
+{{#*inline "node"}}
+{
+	id: "{{id}}",
+	title: "{{title}}",
+	text: "{{text}}",
+	{{#if nodes}}
+	nodes:[
+		{{#each nodes}}
+			{{> node}}
+		{{/each}}
+	]
+	{{/if}}
+},
+{{/inline}}
+
+{
+	title: "{{title}}",
+	nodes:[
+	{{#each nodes}}
+		{{> node}}
+	{{/each}}
+	],
+	links:[
+	{{#each links}}
+	{
+		from: "{{from}}",
+		to: "{{to}}",
+		label: "{{label}}"
+	},
+	{{/each}}
+	]
+
+}
