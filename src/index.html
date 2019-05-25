@@ -23,6 +23,17 @@
 
 		const fs = require('fs')
 		let store = null
+
+		store = loadProject({})
+	
+		ReactDOM.render(
+			<Provider store={store}>
+				<App />
+			</Provider>,
+			document.getElementById("root")
+		)
+
+		/*
 		fs.readFile('/Users/ivan/Projects/Fabula/test_project/project.js', 'utf-8', 
 		function (err, data) {
 			var data = JSON.parse(data)
@@ -37,6 +48,7 @@
 			</Provider>,
 			document.getElementById("root"))
 		})
+		*/
     
     </script>
   </body>
