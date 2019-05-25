@@ -2,9 +2,11 @@ import {app, BrowserWindow, Menu, ipcMain, systemPreferences} from 'electron'
 import path from 'path'
 
 function createWindow () {
-	systemPreferences.setUserDefault('NSDisabledDictationMenuItem', 'boolean', true)
-	systemPreferences.setUserDefault('NSDisabledCharacterPaletteMenuItem', 'boolean', true)
-
+	if (process.platform == 'darwin') {
+		systemPreferences.setUserDefault('NSDisabledDictationMenuItem', 'boolean', true)
+		systemPreferences.setUserDefault('NSDisabledCharacterPaletteMenuItem', 'boolean', true)
+	}
+	
 	global.settings = {modified: false}
 
 	// Create the browser window.
